@@ -31,5 +31,12 @@ namespace Productos.BE
 
             return respuesta;
         }
+
+        public void Modificar(string codigo, string nombre, decimal precio)
+        {
+            Codigo = codigo;
+            Nombre = nombre;
+            Precio = precio;
+        }
     }
 }

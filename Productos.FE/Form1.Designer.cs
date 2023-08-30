@@ -36,6 +36,9 @@
             this.btAceptar = new System.Windows.Forms.Button();
             this.txtCodigo = new System.Windows.Forms.TextBox();
             this.lbl1 = new System.Windows.Forms.Label();
+            this.btBuscar = new System.Windows.Forms.Button();
+            this.btListar = new System.Windows.Forms.Button();
+            this.btModificar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtPrecio
@@ -78,7 +81,7 @@
             // 
             this.lblResultado.AutoSize = true;
             this.lblResultado.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblResultado.Location = new System.Drawing.Point(8, 73);
+            this.lblResultado.Location = new System.Drawing.Point(16, 125);
             this.lblResultado.Name = "lblResultado";
             this.lblResultado.Size = new System.Drawing.Size(0, 25);
             this.lblResultado.TabIndex = 11;
@@ -86,7 +89,7 @@
             // btAceptar
             // 
             this.btAceptar.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btAceptar.Location = new System.Drawing.Point(591, 33);
+            this.btAceptar.Location = new System.Drawing.Point(17, 69);
             this.btAceptar.Name = "btAceptar";
             this.btAceptar.Size = new System.Drawing.Size(95, 33);
             this.btAceptar.TabIndex = 13;
@@ -112,11 +115,47 @@
             this.lbl1.TabIndex = 7;
             this.lbl1.Text = "Código";
             // 
+            // btBuscar
+            // 
+            this.btBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btBuscar.Location = new System.Drawing.Point(118, 69);
+            this.btBuscar.Name = "btBuscar";
+            this.btBuscar.Size = new System.Drawing.Size(95, 33);
+            this.btBuscar.TabIndex = 15;
+            this.btBuscar.Text = "Buscar";
+            this.btBuscar.UseVisualStyleBackColor = true;
+            this.btBuscar.Click += new System.EventHandler(this.btBuscar_Click);
+            // 
+            // btListar
+            // 
+            this.btListar.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btListar.Location = new System.Drawing.Point(219, 69);
+            this.btListar.Name = "btListar";
+            this.btListar.Size = new System.Drawing.Size(95, 33);
+            this.btListar.TabIndex = 16;
+            this.btListar.Text = "Listar";
+            this.btListar.UseVisualStyleBackColor = true;
+            this.btListar.Click += new System.EventHandler(this.btListar_Click);
+            // 
+            // btModificar
+            // 
+            this.btModificar.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btModificar.Location = new System.Drawing.Point(320, 69);
+            this.btModificar.Name = "btModificar";
+            this.btModificar.Size = new System.Drawing.Size(108, 33);
+            this.btModificar.TabIndex = 17;
+            this.btModificar.Text = "Modificar";
+            this.btModificar.UseVisualStyleBackColor = true;
+            this.btModificar.Click += new System.EventHandler(this.btModificar_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(707, 450);
+            this.Controls.Add(this.btModificar);
+            this.Controls.Add(this.btListar);
+            this.Controls.Add(this.btBuscar);
             this.Controls.Add(this.txtPrecio);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtProducto);
@@ -142,6 +181,9 @@
         private System.Windows.Forms.Button btAceptar;
         private System.Windows.Forms.TextBox txtCodigo;
         private System.Windows.Forms.Label lbl1;
+        private System.Windows.Forms.Button btBuscar;
+        private System.Windows.Forms.Button btListar;
+        private System.Windows.Forms.Button btModificar;
     }
 }
 
