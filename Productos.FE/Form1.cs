@@ -21,22 +21,26 @@ namespace Productos.FE
 
         private void btAceptar_Click(object sender, EventArgs e)
         {
+            if (ValidarDatos())
+            {
+                Producto producto = new Producto();
 
-            //instanciar objeto producto de la clase Producto
-            //Producto producto; 
-            //inicializar el objeto producto
-            //producto = new Producto();
+                producto.Codigo = txtCodigo.Text;
+                producto.Nombre = txtProducto.Text;
+                producto.Precio = Convert.ToDecimal(txtPrecio.Text);
 
-            //Instanciar e inicializar en un solo paso
-            Producto producto = new Producto();
+                lista.AgregarProducto(producto);
 
-            producto.Codigo = txtCodigo.Text;
-            producto.Nombre = txtProducto.Text;
-            producto.Precio = Convert.ToDecimal( txtPrecio.Text);
+                lblResultado.Text = lista.Listar();
 
-            lista.AgregarProducto(producto);
-
-            lblResultado.Text = lista.Listar();
+                LimpiarPantalla();
+            }
+            else
+            {
+                lblResultado.Text = "Datos Incorrectos";
+                txtCodigo.Focus();
+                txtCodigo.SelectAll();
+            }
 
         }
 
@@ -57,6 +61,8 @@ namespace Productos.FE
                 lblResultado.Text = "Producto encontrado";
 
             }
+            txtCodigo.Focus();
+            txtCodigo.SelectAll();
         }
 
         private void btListar_Click(object sender, EventArgs e)
@@ -76,6 +82,50 @@ namespace Productos.FE
                                      + txtCodigo.Text; ;
             }
             lblResultado.Text = lista.Listar();
+        }
+
+        private void btBorrar_Click(object sender, EventArgs e)
+        {
+            bool resp = lista.BorrarProducto(txtCodigo.Text);
+
+            if(resp) 
+            {
+                lblResultado.Text = "El producto de código "
+                    + txtCodigo.Text
+                    + " a sido borrado.";
+            }
+            else
+            {
+                lblResultado.Text = "El producto de código "
+                    + txtCodigo.Text
+                    + " NO pudo ser borrado.";
+            }
+
+            LimpiarPantalla();
+        }
+
+        private void LimpiarPantalla()
+        {
+            txtCodigo.Text = "";
+            txtProducto.Text = "";
+            txtPrecio.Text = "0";
+
+            txtCodigo.Focus();
+        }
+
+        private bool ValidarDatos()
+        {
+            bool res = false;
+
+            if(txtCodigo.Text!="" 
+                && txtProducto.Text != ""
+               )
+            {
+                res = true;
+            }
+
+
+            return res;
         }
     }
 }

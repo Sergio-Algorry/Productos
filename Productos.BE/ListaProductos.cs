@@ -53,7 +53,6 @@ namespace Productos.BE
             return Prod;
         }
 
-
         public int BuscarRenglonProducto(string codigo)
         {
             int fila = -1;
@@ -100,5 +99,22 @@ namespace Productos.BE
         //        Lista[filaAModificar] = prodAModificar;
         //    }
         //}
+
+        public bool BorrarProducto(string codigo)
+        {
+            bool pudeborrar = false;
+
+            int filaaBorra = BuscarRenglonProducto(codigo);
+            if (filaaBorra != -1)
+            {
+                Lista[filaaBorra] = Lista[fila - 1]; //copio elúltimo en la fila a borrar
+                
+                Lista[fila - 1] = null; //el ultimo convierto a null
+
+                fila = fila - 1; // acomodo el renglon del nuevo producto a crear
+                pudeborrar = true;
+            }
+            return pudeborrar;
+        }
     }
 }
